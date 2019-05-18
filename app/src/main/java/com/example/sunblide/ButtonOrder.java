@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData;
 
 public class ButtonOrder {
 
-    private MutableLiveData<String> sunblideInfo;//todo return info to screen
+    private MutableLiveData<String> sunblideInfo;
 
     public ButtonOrder() {
-        sunblideInfo.setValue("");
+        sunblideInfo = new MutableLiveData<>();
     }
 
     public void upOn(String ip) {
@@ -25,7 +25,11 @@ public class ButtonOrder {
 
         @Override
         protected String doInBackground(String... strings) {
-            return Utility.makeOrder(strings[0]);
+            String result = Utility.makeOrder(strings[0]);
+            if (result != null){
+                return result;
+            }
+            return null;
         }
 
         @Override
@@ -34,7 +38,6 @@ public class ButtonOrder {
                 sunblideInfo.setValue(s);
             }
         }
-
     }
     public MutableLiveData<String> getSunblideInfo() {
         return sunblideInfo;

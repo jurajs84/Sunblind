@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,11 +20,6 @@ public class SunblideItemActivity extends AppCompatActivity implements View.OnTo
     private String ipAddress;
     private int id;
     private Intent intentData;
-    private Button upBtn;
-    private Button downBtn;
-    private Button fullUpBtn;
-    private Button fullDownBtn;
-    private Button stopBtn;
 
     private SunblideItemViewModel sunblideItemViewModel;
 
@@ -34,11 +30,12 @@ public class SunblideItemActivity extends AppCompatActivity implements View.OnTo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sunblide_item_activity);
 
-        upBtn = findViewById(R.id.up_button);
-        downBtn = findViewById(R.id.down_button);
-        fullUpBtn = findViewById(R.id.full_up_button);
-        fullDownBtn = findViewById(R.id.full_down_button);
-        stopBtn = findViewById(R.id.stop_button);
+        Button upBtn = findViewById(R.id.up_button);
+        Button downBtn = findViewById(R.id.down_button);
+        Button fullUpBtn = findViewById(R.id.full_up_button);
+        Button fullDownBtn = findViewById(R.id.full_down_button);
+        Button stopBtn = findViewById(R.id.stop_button);
+        TextView statusTextView = findViewById(R.id.status_textView);
 
         upBtn.setOnTouchListener(this);
         downBtn.setOnTouchListener(this);
@@ -47,6 +44,9 @@ public class SunblideItemActivity extends AppCompatActivity implements View.OnTo
         stopBtn.setOnTouchListener(this);
 
         sunblideItemViewModel = ViewModelProviders.of(this).get(SunblideItemViewModel.class);
+        sunblideItemViewModel.getStatusInfo().observe(this, statusInfo ->
+                statusTextView.setText(statusInfo));
+
         handler = new Handler();
 
 

@@ -29,7 +29,7 @@ public final class Utility {
 
     public static String makeOrder(String order) {
         URL url = createUrl(order);
-        String response = "";
+        String response = "off";
         try {
             response = httpConnection(url);
         } catch (IOException e) {
@@ -56,7 +56,7 @@ public final class Utility {
                 Log.e("LOG", "Error code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e("LOG1","Error getting json data " + urlConnection.getResponseCode());
+            Log.e("LOG","Error getting json data " + urlConnection.getResponseCode());
         } finally {
             if (urlConnection != null){
                 urlConnection.disconnect();

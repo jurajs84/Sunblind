@@ -6,29 +6,30 @@ import androidx.lifecycle.ViewModel;
 
 public class SunblideItemViewModel extends ViewModel {
 
-    private MutableLiveData<String> pingInfo;
+    private MutableLiveData<String> statusInfo;
     private ButtonOrder buttonOrder;
 
     public SunblideItemViewModel() {
         buttonOrder = new ButtonOrder();
+        statusInfo = buttonOrder.getSunblideInfo();
     }
 
-    LiveData<String> getPingInfo() {
-        if (pingInfo == null) {
-            pingInfo = new MutableLiveData<>();
+    LiveData<String> getStatusInfo() {
+        if (statusInfo == null) {
+            statusInfo = new MutableLiveData<>();
 //            upOn();
 //            upOff();
         }
-        return pingInfo;
+        return statusInfo;
     }
 
     public void upOn(String ip) {
-        String ipInfo = buttonOrder.upOn(ip);
-        //pingInfo.setValue(ipInfo);
+        buttonOrder.upOn(ip);
+        //statusInfo.setValue(ipInfo);
     }
 
     public void upOff(String ip) {
-        String ipInfo = buttonOrder.upOff(ip);
-        //pingInfo.setValue(ipInfo);
+        buttonOrder.upOff(ip);
+        //statusInfo.setValue(ipInfo);
     }
 }
