@@ -3,6 +3,7 @@ package com.example.sunblide;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         //setting RecyclerViewAdapter
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         adapter = new SunblideRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
 

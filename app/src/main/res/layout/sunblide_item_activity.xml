@@ -4,60 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-    <Button
-        android:id="@+id/full_up_button"
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:text="Full UP"
-        app:layout_constraintBottom_toBottomOf="@+id/up_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/full_down_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="53dp"
-        android:text="full down"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/full_up_button" />
-
-    <Button
-        android:id="@+id/up_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="68dp"
-        android:text="up"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/down_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="70dp"
-        android:text="down"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/up_button" />
-
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="stop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/full_down_button" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/full_up_button"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Full UP" />
+
+            <Button
+                android:id="@+id/full_down_button"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:background="@color/colorPrimaryDark"
+                android:text="full down" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/up_button"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:background="@color/colorPrimaryDark"
+                android:text="up" />
+
+            <Button
+                android:id="@+id/down_button"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:background="@color/colorPrimaryDark"
+                android:text="down" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <Button
+                android:id="@+id/stop_button"
+                android:layout_margin="5dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:background="@color/colorPrimaryDark"
+                android:text="stop" />
+        </TableRow>
+    </TableLayout>
+
+
 
     <TextView
         android:id="@+id/status_textView"

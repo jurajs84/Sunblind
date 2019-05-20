@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <EditText
         android:id="@+id/name_editText"
@@ -13,6 +14,10 @@
         android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Name"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTextLight"
+        android:textColorLink="@color/colorTextLight"
+        android:backgroundTint="@color/colorTextLight"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +28,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTextLight"
+        android:backgroundTint="@color/colorTextLight"
         android:digits="0123456789."
         android:ems="10"
         android:hint="IP address"

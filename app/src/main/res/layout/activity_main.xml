@@ -4,53 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            tools:listitem="@layout/list_item">
 
-        </androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="2"
+        tools:listitem="@layout/list_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="8dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="3">
-        <Button
-            android:id="@+id/all_up_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UP" />
+            android:layout_height="80dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/all_down_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Down" />
-        <Button
-            android:id="@+id/all_up_full_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FULL UP" />
+            <Button
+                android:id="@+id/all_up_btn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="2dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="UP"
+                android:textColor="@color/colorWhite" />
 
-        <Button
-            android:id="@+id/all_down_full_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FULL Down" />
+            <Button
+                android:id="@+id/all_down_btn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="2dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="Down"
+                android:textColor="@color/colorWhite" />
 
-        <TextView
-            android:id="@+id/pingTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kuchyně" />
+            <Button
+                android:id="@+id/all_up_full_btn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="2dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="FULL UP"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/all_down_full_btn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="2dp"
+                android:background="@color/colorPrimary"
+                android:padding="2dp"
+                android:text="FULL Down"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/pingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Kuchyně"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintStart_toEndOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
