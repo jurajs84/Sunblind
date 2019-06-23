@@ -2,7 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/add_sunblide"
-        android:title="Add new sunblide"
+        android:id="@+id/add_sunblind"
+        android:title="Add new sunblind"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/control_all_sunblinds"
+        android:title="Control all sunblinds"
         app:showAsAction="collapseActionView"/>
 </menu>

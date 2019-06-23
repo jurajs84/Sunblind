@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.Sunblide"
+        applicationId "com.example.Sunblind"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
@@ -46,4 +46,3 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
 
 }
-

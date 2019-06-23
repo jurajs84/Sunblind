@@ -1,4 +1,4 @@
-package com.example.sunblide;
+package com.example.sunblind;
 
 import android.util.Log;
 
@@ -13,19 +13,25 @@ import java.nio.charset.Charset;
 
 public final class Utility {
 
-    public static final int ADD_SUNBLIDE_REQUEST = 1;
-    public static final int EDIT_SUNBLIDE_REQUEST = 2;
-    public static final int ITEM_SUNBLIDE_REQUEST = 3;
-    public static final int DELETE_SUNBLIDE = 4;
+    public static final int ADD_SUNBLIND_REQUEST = 1;
+    public static final int EDIT_SUNBLIND_REQUEST = 2;
+    public static final int ITEM_SUNBLIND_REQUEST = 3;
+    public static final int DELETE_SUNBLIND = 4;
 
-    public static final String EXTRA_NAME = "com.example.sunblide/EXTRA_NAME";
-    public static final String EXTRA_IP_ADDRESS = "com.example.sunblide/EXTRA_IP_ADDRESS";
-    public static final String EXTRA_ID = "com.example.sunblide/EXTRA_ID";
+    public static final String EXTRA_NAME = "com.example.sunblind/EXTRA_NAME";
+    public static final String EXTRA_IP_ADDRESS = "com.example.sunblind/EXTRA_IP_ADDRESS";
+    public static final String EXTRA_ID = "com.example.sunblind/EXTRA_ID";
+    public static final String EXTRA_TIME = "com.example.sunblind/EXTRA_TIME";
+    public static final String EXTRA_IP_ARRAY = "com.example.sunblind/EXTRA_IP_ARRAY";
+    public static final String EXTRA_MAX_RUNNING_TIME = "com.example.sunblind/EXTRA_MAX_RUNNING_TIME";
 
-    public static final int DEFAULT_TIME = 3;
+    public static final int DEFAULT_TIME = 3000;
     public static final String IP_ADDRESS_KITCHEN_A = "192.168.43.82";
     public static final String UP_ON = "up_on";
     public static final String UP_OFF = "up_off";
+    public static final String DOWN_ON = "down_on";
+    public static final String DOWN_OFF = "down_off";
+    public static final String STATUS = "status";
 
     public static String makeOrder(String order) {
         URL url = createUrl(order);

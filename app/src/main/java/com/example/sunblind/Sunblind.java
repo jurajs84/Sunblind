@@ -1,10 +1,10 @@
-package com.example.sunblide;
+package com.example.sunblind;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "sunblide_table")
-public class Sunblide {
+@Entity(tableName = "sunblind_table")
+public class Sunblind {
 
     public void setId(int id) {
         this.id = id;
@@ -17,9 +17,12 @@ public class Sunblide {
 
     private String address;
 
-    public Sunblide(String name, String address) {
+    private int runningTime;
+
+    public Sunblind(String name, String address, int runningTime) {
         this.name = name;
         this.address = address;
+        this.runningTime = runningTime;
     }
 
     public int getId() {
@@ -32,5 +35,9 @@ public class Sunblide {
 
     public String getAddress() {
         return address;
+    }
+
+    public int getRunningTime() {
+        return runningTime;
     }
 }

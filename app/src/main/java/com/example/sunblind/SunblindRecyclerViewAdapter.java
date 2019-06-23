@@ -1,4 +1,4 @@
-package com.example.sunblide;
+package com.example.sunblind;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,14 +6,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class SunblideRecyclerViewAdapter extends RecyclerView.Adapter<SunblideRecyclerViewAdapter.MyViewHolder> {
+public class SunblindRecyclerViewAdapter extends RecyclerView.Adapter<SunblindRecyclerViewAdapter.MyViewHolder> {
 
-    private List<Sunblide> sunblideList = new ArrayList<>();
+    private List<Sunblind> sunblindList = new ArrayList<>();
     private OnItemClickListener clickListener;
 
     @NonNull
@@ -25,13 +26,13 @@ public class SunblideRecyclerViewAdapter extends RecyclerView.Adapter<SunblideRe
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Sunblide currentSunblide = sunblideList.get(position);
-        holder.nameTextView.setText(currentSunblide.getName());
+        Sunblind currentSunblind = sunblindList.get(position);
+        holder.nameTextView.setText(currentSunblind.getName());
     }
 
     @Override
     public int getItemCount() {
-        return sunblideList.size();
+        return sunblindList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -40,28 +41,28 @@ public class SunblideRecyclerViewAdapter extends RecyclerView.Adapter<SunblideRe
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.sunblide_name);
+            nameTextView = itemView.findViewById(R.id.sunblind_name);
 
             //3. creating click clickListener in our holder
             //next step in MainActivity onCreate method
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();
                 if (clickListener != null && position != RecyclerView.NO_POSITION) {//crash avoiding
-                    clickListener.onItemClick(sunblideList.get(position));
+                    clickListener.onItemClick(sunblindList.get(position));
                 }
             });
         }
     }
 
-    //helper to update sunblideList
-    public void setSunblideList (List<Sunblide> sunblideList) {
-        this.sunblideList = sunblideList;
+    //helper to update sunblindList
+    public void setSunblindList(List<Sunblind> sunblindList) {
+        this.sunblindList = sunblindList;
         notifyDataSetChanged();
     }
 
     //1. interface for add clickable items
     public interface OnItemClickListener{
-        void onItemClick(Sunblide sunblide);
+        void onItemClick(Sunblind sunblind);
     }
 
     //2. create method for clickable notes and chose OnItemClickListener from this package
@@ -70,7 +71,27 @@ public class SunblideRecyclerViewAdapter extends RecyclerView.Adapter<SunblideRe
         this.clickListener = listener;
     }
 
-    public Sunblide getSunblideAtPosition(int position) {
-        return sunblideList.get(position);
+    public Sunblind getSunblindAtPosition(int position) {
+        return sunblindList.get(position);
+    }
+
+    /**
+     * this method is for getting all ip addresses for controlling all blinds at one time
+     * @return String array of ip addresses
+     */
+    public String[] getAllIp() {
+        String[] allIp = new String[sunblindList.size()];
+        for (int i = 0; i < sunblindList.size(); i++) {
+            allIp[i] = sunblindList.get(i).getAddress();
+        }
+        return allIp;
+    }
+
+    public int getMaxRunningTime() {
+        List<Integer> runningTimes = new ArrayList<>();
+        for (Sunblind sunblind : sunblindList) {
+            runningTimes.add(sunblind.getRunningTime());
+        }
+        return Collections.max(runningTimes); // return max value of all sun blinds
     }
 }

@@ -27,74 +27,12 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="8dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/all_up_btn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="UP"
-                android:textColor="@color/colorWhite" />
-
-            <Button
-                android:id="@+id/all_down_btn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="Down"
-                android:textColor="@color/colorWhite" />
-
-            <Button
-                android:id="@+id/all_up_full_btn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="FULL UP"
-                android:textColor="@color/colorWhite" />
-
-            <Button
-                android:id="@+id/all_down_full_btn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp"
-                android:background="@color/colorPrimary"
-                android:padding="2dp"
-                android:text="FULL Down"
-                android:textColor="@color/colorWhite" />
-        </LinearLayout>
-    </FrameLayout>
-
     <TextView
         android:id="@+id/pingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Kuchyně"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintStart_toEndOf="@+id/recyclerView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />

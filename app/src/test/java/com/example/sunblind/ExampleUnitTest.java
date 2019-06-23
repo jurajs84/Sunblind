@@ -1,4 +1,4 @@
-package com.example.sunblide;
+package com.example.sunblind;
 
 import org.junit.Test;
 

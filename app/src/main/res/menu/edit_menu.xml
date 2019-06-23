@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="edit"
-        android:id="@+id/edit_sunblide"
+        android:id="@+id/edit_sunblind"
         app:showAsAction="always"
         android:icon="@drawable/ic_settings_white_24dp"
         />

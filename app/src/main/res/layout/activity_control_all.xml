@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    tools:context="com.example.sunblind.ControlAllActivity"
     android:background="@color/colorPrimary">
 
     <TableLayout
@@ -21,72 +21,61 @@
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/full_up_button"
-                android:layout_margin="5dp"
+                android:id="@+id/all_full_up_button"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/control_btn"
+                android:ellipsize="none"
+                android:text="All Full          UP"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp"
-                android:background="@color/colorPrimaryDark"
-                android:text="Full UP" />
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/full_down_button"
+                android:id="@+id/all_full_down_button"
                 android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
-                android:background="@color/colorPrimaryDark"
-                android:text="full down" />
+                android:background="@drawable/control_btn"
+                android:text="All full down" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/up_button"
+                android:id="@+id/all_up_button"
                 android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
-                android:background="@color/colorPrimaryDark"
-                android:text="up" />
+                android:background="@drawable/control_btn"
+                android:text="All up" />
 
             <Button
-                android:id="@+id/down_button"
+                android:id="@+id/all_down_button"
                 android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
-                android:background="@color/colorPrimaryDark"
-                android:text="down" />
+                android:background="@drawable/control_btn"
+                android:text="All down" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <Button
-                android:id="@+id/stop_button"
+                android:id="@+id/all_stop_button"
                 android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
-                android:background="@color/colorPrimaryDark"
-                android:text="stop" />
+                android:background="@drawable/control_btn"
+                android:text="All stop" />
         </TableRow>
     </TableLayout>
-
-
-
-    <TextView
-        android:id="@+id/status_textView"
-        android:layout_width="53dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="status"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

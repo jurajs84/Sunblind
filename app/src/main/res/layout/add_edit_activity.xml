@@ -5,39 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/name_editText"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="44dp"
+                android:ems="10"
+                android:hint="Name"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorTextLight"
+                android:textColorLink="@color/colorTextLight"
+                android:backgroundTint="@color/colorTextLight"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/name_editText"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:ems="10"
-        android:hint="Name"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorTextLight"
-        android:textColorLink="@color/colorTextLight"
-        android:backgroundTint="@color/colorTextLight"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/ip_editText"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorTextLight"
+                android:backgroundTint="@color/colorTextLight"
+                android:digits="0123456789."
+                android:ems="10"
+                android:hint="IP address"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_editText" />
 
-    <EditText
-        android:id="@+id/ip_editText"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorTextLight"
-        android:backgroundTint="@color/colorTextLight"
-        android:digits="0123456789."
-        android:ems="10"
-        android:hint="IP address"
-        android:inputType="number|numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_editText" />
+            <NumberPicker
+                android:id="@+id/numberPicker"
+                style="@android:style/Widget.Material.Light.NumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:scrollbarSize="@dimen/cardview_default_radius"
+                android:scrollbarStyle="insideInset"
+                android:solidColor="#00000000"
+                android:theme="@style/AppTheme.Picker"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/ip_editText" />
 
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="106dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="68dp"
+                android:gravity="center"
+                android:text="Running time (seconds)"
+                android:textColor="@color/colorTextLight"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ip_editText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"
         android:layout_width="wrap_content"
