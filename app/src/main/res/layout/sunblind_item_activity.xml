@@ -8,6 +8,7 @@
     android:background="@color/colorPrimary">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,61 +34,73 @@
 
             <Button
                 android:id="@+id/full_down_button"
-                android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:background="@drawable/control_btn"
-                android:text="full down" />
+                android:text="full down"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <Button
                 android:id="@+id/up_button"
-                android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:background="@drawable/control_btn"
-                android:text="up" />
+                android:text="up"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/down_button"
-                android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:background="@drawable/control_btn"
-                android:text="down" />
+                android:text="down"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <Button
                 android:id="@+id/stop_button"
-                android:layout_margin="5dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:background="@drawable/control_btn"
-                android:text="stop" />
+                android:text="stop"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
         </TableRow>
     </TableLayout>
 
 
-
     <TextView
         android:id="@+id/status_textView"
-        android:layout_width="53dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="status"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_icon" />
+
+
+    <ImageView
+        android:id="@+id/status_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:srcCompat="@drawable/ic_signal_wifi_off" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

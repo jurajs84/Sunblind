@@ -35,7 +35,7 @@ public final class Utility {
 
     public static String makeOrder(String order) {
         URL url = createUrl(order);
-        String response = "off";
+        String response = "offline";
         try {
             response = httpConnection(url);
         } catch (IOException e) {
@@ -51,8 +51,8 @@ public final class Utility {
 
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(10000);
-            urlConnection.setConnectTimeout(15000);
+            urlConnection.setReadTimeout(500);//short time
+            urlConnection.setConnectTimeout(500);//short time
             urlConnection.setRequestMethod("PUT");
             urlConnection.connect();
             if (urlConnection.getResponseCode() == 200) {

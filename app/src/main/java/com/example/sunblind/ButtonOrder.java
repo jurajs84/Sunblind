@@ -36,10 +36,8 @@ public class ButtonOrder {
         new MyAsyncTask().execute("http://" + ip + "/" + Utility.DOWN_OFF);
     }
 
-    public void getAllInfo(String[] ipAddresses) {
-        for (String ip : ipAddresses) {
-            new MyAsyncTask().execute("http://" + ip + "/" + Utility.STATUS);//todo ESP32 has to send back it's ip and OK?
-        }
+    public void getStatusInfo(String ip) {
+        new MyAsyncTask().execute("http://" + ip + "/" + Utility.STATUS);
     }
 
     /**

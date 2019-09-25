@@ -36,4 +36,8 @@ public class SunblindItemViewModel extends ViewModel {
     public void downOff(String ip) {
         buttonOrder.downOff(ip);
     }
+
+    public void getStatus(String ip) {
+        buttonOrder.getStatusInfo(ip);
+    }
 }

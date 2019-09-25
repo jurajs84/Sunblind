@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
@@ -36,19 +35,6 @@ public class MainActivity extends AppCompatActivity{
         sunblindViewModel = ViewModelProviders.of(this).get(SunblindViewModel.class);
         sunblindViewModel.getAllSunblindList().observe(this, allSunblindList -> {
             adapter.setSunblindList(allSunblindList);//sending allList to adapter
-        });
-
-        TextView pingTextView = findViewById(R.id.pingTextView);
-
-        //isOnLine();
-        //TODO info if all ESP32 are online
-        sunblindViewModel.getPingInfo().observe(this, pingInfo ->{
-            if (pingInfo.matches("ok")) {
-                pingTextView.setText("Kuchyně online");
-            }
-            else {
-                pingTextView.setText("Kuchyně offline");
-            }
         });
 
         /**
@@ -152,28 +138,5 @@ public class MainActivity extends AppCompatActivity{
 //        else if (requestCode != Utility.ITEM_SUNBLIND_REQUEST || ){
 //            Toast.makeText(this, "Sunblind not saved", Toast.LENGTH_SHORT).show();
 //        }
-    }
-
-//    private void isOnLine() {
-//
-//    }
-
-    /**
-     * only Toasts when button is pressed and released
-     */
-    private void downOff() {
-        Toast.makeText(this, "down OFF", Toast.LENGTH_SHORT).show();
-    }
-
-    private void downOn() {
-        Toast.makeText(this, "down ON", Toast.LENGTH_SHORT).show();
-    }
-
-    private void upOff() {
-        Toast.makeText(this, "up OFF", Toast.LENGTH_SHORT).show();
-    }
-
-    private void upOn() {
-        Toast.makeText(this, "up ON", Toast.LENGTH_SHORT).show();
     }
 }

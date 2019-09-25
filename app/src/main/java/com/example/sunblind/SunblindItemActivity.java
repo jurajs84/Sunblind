@@ -8,11 +8,14 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.room.util.StringUtil;
 
 public class SunblindItemActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -37,6 +40,7 @@ public class SunblindItemActivity extends AppCompatActivity implements View.OnTo
         Button fullDownBtn = findViewById(R.id.full_down_button);
         Button stopBtn = findViewById(R.id.stop_button);
         TextView statusTextView = findViewById(R.id.status_textView);
+        ImageView statusIcon = findViewById(R.id.status_icon);
 
         upBtn.setOnTouchListener(this);
         downBtn.setOnTouchListener(this);
@@ -47,8 +51,20 @@ public class SunblindItemActivity extends AppCompatActivity implements View.OnTo
          * subscribe to ViewModel and observe status info from ESP32
          */
         sunblindItemViewModel = ViewModelProviders.of(this).get(SunblindItemViewModel.class);
-        sunblindItemViewModel.getStatusInfo().observe(this, statusInfo ->
-                statusTextView.setText(statusInfo));
+        sunblindItemViewModel.getStatusInfo().observe(this, text -> {
+            if (text.equals("offline")) {
+                statusIcon.setImageResource(R.drawable.ic_signal_wifi_off);
+                statusTextView.setText("offline");
+            }
+            else if (text.equals("ok")) {
+                statusIcon.setImageResource(R.drawable.ic_wifi_online);
+                statusTextView.setText("online");
+            }
+            else {
+                statusIcon.setImageResource(R.drawable.ic_signal_wifi_off);
+                statusTextView.setText("offline");
+            }
+        });
 
         handler = new Handler();//handler for delaying sunblinds orders
         /**
@@ -58,6 +74,11 @@ public class SunblindItemActivity extends AppCompatActivity implements View.OnTo
         if (intentData != null) {
             setData();
         }
+
+        /**
+         * get online status when activity is created
+         */
+        sunblindItemViewModel.getStatus(ipAddress);
     }
 
     private void setData() {

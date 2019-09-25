@@ -20,6 +20,7 @@ public class SunblindViewModel extends AndroidViewModel {
         repository = new SunblindRepository(application);
         allSunblindList = repository.getSunblindList();
         buttonOrder = new ButtonOrder();
+        pingInfo = buttonOrder.getSunblindInfo();
     }
 
     public void insert(Sunblind sunblind) {
@@ -43,13 +44,5 @@ public class SunblindViewModel extends AndroidViewModel {
             pingInfo = new MutableLiveData<>();
         }
         return pingInfo;
-    }
-
-    public void upOn(String ip) {
-        buttonOrder.upOn(ip);
-    }
-
-    public void upOff(String ip) {
-        buttonOrder.upOff(ip);
     }
 }
