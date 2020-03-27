@@ -4,9 +4,9 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.MutableLiveData;
 
-public class ButtonOrder {
+class ButtonOrder {
 
-    private MutableLiveData<String> sunblindInfo;
+    private final MutableLiveData<String> sunblindInfo;
 
     /**
      * constructor initializes LiveData sunblindInfo
@@ -41,18 +41,14 @@ public class ButtonOrder {
     }
 
     /**
-     * MyAsyncTask returns String info from ESP32. It returns OK when ESP32 is online and empty
+     * MyAsyncTask returns String info from ESP32. It returns ip when ESP32 is online and empty
      * String when offline. This String info sets LiveData sunblindInfo
      */
     private class MyAsyncTask extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
-            String result = Utility.makeOrder(strings[0]);
-            if (result != null){
-                return result;
-            }
-            return null;
+            return Utility.makeOrder(strings[0]);
         }
 
         @Override

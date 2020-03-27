@@ -7,9 +7,9 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 
-public class SunblindRepository {
-    private LiveData<List<Sunblind>> sunblindList;
-    private SunblindDao sunblindDao;
+class SunblindRepository {
+    private final LiveData<List<Sunblind>> sunblindList;
+    private final SunblindDao sunblindDao;
 
     public SunblindRepository(Application application) {
         SunblindDatabase db = SunblindDatabase.getDatabase(application);
@@ -35,9 +35,9 @@ public class SunblindRepository {
 
     private static class InsertAsyncTask extends AsyncTask<Sunblind, Void, Void> {
 
-        private SunblindDao sunblindDao;
+        private final SunblindDao sunblindDao;
 
-        public InsertAsyncTask(SunblindDao sunblindDao) {
+        InsertAsyncTask(SunblindDao sunblindDao) {
             this.sunblindDao = sunblindDao;
         }
 
@@ -50,9 +50,9 @@ public class SunblindRepository {
 
     private static class UpdateAsyncTask extends AsyncTask<Sunblind, Void, Void>{
 
-        private SunblindDao sunblindDao;
+        private final SunblindDao sunblindDao;
 
-        public UpdateAsyncTask(SunblindDao sunblindDao) {
+        UpdateAsyncTask(SunblindDao sunblindDao) {
             this.sunblindDao = sunblindDao;
         }
 
@@ -65,9 +65,9 @@ public class SunblindRepository {
 
     private class DeleteAsyncTask extends AsyncTask<Sunblind, Void, Void> {
 
-        private SunblindDao sunblindDao;
+        private final SunblindDao sunblindDao;
 
-        public DeleteAsyncTask (SunblindDao sunblindDao) {
+        DeleteAsyncTask(SunblindDao sunblindDao) {
             this.sunblindDao = sunblindDao;
         }
 

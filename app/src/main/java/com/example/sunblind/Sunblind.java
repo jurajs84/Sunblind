@@ -13,16 +13,21 @@ public class Sunblind {
     @PrimaryKey (autoGenerate = true)
     private int id;
 
-    private String name;
+    private final String name;
 
-    private String address;
+    private final String address;
 
-    private int runningTime;
+    private final int runningTime;
+
+    private boolean isSelected;
+
+    private boolean isOnline;
 
     public Sunblind(String name, String address, int runningTime) {
         this.name = name;
         this.address = address;
         this.runningTime = runningTime;
+        //this.isSelected = false;
     }
 
     public int getId() {
@@ -39,5 +44,21 @@ public class Sunblind {
 
     public int getRunningTime() {
         return runningTime;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    public boolean isOnline() {
+        return isOnline;
+    }
+
+    public void setOnline(boolean online) {
+        isOnline = online;
     }
 }

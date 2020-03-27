@@ -5,8 +5,8 @@
         android:id="@+id/add_sunblind"
         android:title="Add new sunblind"
         app:showAsAction="collapseActionView" />
-    <item
-        android:id="@+id/control_all_sunblinds"
-        android:title="Control all sunblinds"
-        app:showAsAction="collapseActionView"/>
+    <item android:id="@+id/refresh"
+        android:icon="@drawable/ic_wifi_refresh"
+        android:title="refresh"
+        app:showAsAction="ifRoom"/>
 </menu>

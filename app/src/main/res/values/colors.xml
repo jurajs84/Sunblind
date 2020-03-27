@@ -5,6 +5,7 @@
     <color name="colorAccent">#4f83cc</color>
     <color name="colorTextLight">#BECEEE</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBtnEnabled">#7BCF3E</color>
-    <color name="colorStatusOff">#AD0404</color>
+    <color name="colorStatusOff">#FF4213</color>
+    <color name="colorStatusOn">#4CFF00</color>
+    <color name="colorTextGrey">#7A7A7A</color>
 </resources>

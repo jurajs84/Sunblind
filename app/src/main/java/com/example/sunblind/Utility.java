@@ -9,9 +9,12 @@ import java.net.URL;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public final class Utility {
+final class Utility {
 
     public static final int ADD_SUNBLIND_REQUEST = 1;
     public static final int EDIT_SUNBLIND_REQUEST = 2;
@@ -33,15 +36,31 @@ public final class Utility {
     public static final String DOWN_OFF = "down_off";
     public static final String STATUS = "status";
 
+
     public static String makeOrder(String order) {
         URL url = createUrl(order);
+        String ip = getIp(order);
         String response = "offline";
         try {
             response = httpConnection(url);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return response;
+//        if (ip.equals(response)) {
+//            //todo save true to isOnline to proper Sunblide
+//
+//        }
+        return ip + "-" + response;
+    }
+
+    private static String getIp(String order) {
+        Pattern pattern = Pattern.compile("//(.*?)/");
+        Matcher matcher = pattern.matcher(order);
+        if (matcher.find())
+        {
+            return (matcher.group(1));
+        }
+        return "";
     }
 
     private static String httpConnection(URL url) throws IOException {
@@ -62,7 +81,7 @@ public final class Utility {
                 Log.e("LOG", "Error code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e("LOG","Error getting json data " + urlConnection.getResponseCode());
+            Log.e("LOG","Error getting json data " + Objects.requireNonNull(urlConnection).getResponseCode());
         } finally {
             if (urlConnection != null){
                 urlConnection.disconnect();
@@ -72,6 +91,7 @@ public final class Utility {
             }
         }
         Log.e("LOG", "jsonData: " + jsonData);
+        //urlConnection.getURL();
         return jsonData;
     }
 
@@ -88,7 +108,7 @@ public final class Utility {
     private static String readFromStream(InputStream inputStream) throws IOException {
         StringBuilder output = new StringBuilder();
         if (inputStream != null){
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = bufferedReader.readLine();
             while (line != null){

@@ -12,25 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ControlAllActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTop">
+        <activity android:name=".ControlActivity"
+            android:launchMode="singleTop"
+            android:label="Sunblide">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+            </activity>
         <activity
             android:name=".AddEditActivity"
-            android:parentActivityName=".SunblindItemActivity"
+            android:parentActivityName=".ControlActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".SunblindItemActivity"
-            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

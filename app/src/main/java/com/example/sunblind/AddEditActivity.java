@@ -20,11 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddEditActivity extends AppCompatActivity implements View.OnTouchListener {
 
-    EditText nameEditText;
-    EditText ipAddressEditText;
-    FloatingActionButton checkFab;
-    NumberPicker numberPicker;
-    Intent intent;
+    private EditText nameEditText;
+    private EditText ipAddressEditText;
+    private FloatingActionButton checkFab;
+    private NumberPicker numberPicker;
+    private Intent intent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,9 +41,9 @@ public class AddEditActivity extends AppCompatActivity implements View.OnTouchLi
 //
 //        });
 
-        /**
-         * gets intent after creating this activity and sets proper title text
-         * if intent has EXTRA_ID, it means that we want to edit existing sunblind
+        /*
+          gets intent after creating this activity and sets proper title text
+          if intent has EXTRA_ID, it means that we want to edit existing sunblind
          */
         intent = getIntent();
         if (intent.hasExtra(Utility.EXTRA_ID)){
@@ -59,9 +59,7 @@ public class AddEditActivity extends AppCompatActivity implements View.OnTouchLi
             setTitle("Add sunblind");
         }
 
-        checkFab.setOnClickListener(view -> {
-            saveSunblind();
-        });
+        checkFab.setOnClickListener(view -> saveSunblind());
 
     }
 
@@ -126,7 +124,7 @@ public class AddEditActivity extends AppCompatActivity implements View.OnTouchLi
     }
 
     private Intent makeNewIntent(String name, String ipAddress, int time) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ControlActivity.class);
         intent.putExtra(Utility.EXTRA_NAME, name);
         intent.putExtra(Utility.EXTRA_IP_ADDRESS, ipAddress);
         intent.putExtra(Utility.EXTRA_TIME, time);
